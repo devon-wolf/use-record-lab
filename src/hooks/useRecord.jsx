@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 
 export const useRecord = (init) => {
@@ -9,9 +10,13 @@ export const useRecord = (init) => {
     setCurrentIndex(recordArray.indexOf(current));
   }, [current]);
   
-  // actually, need to insert the new value based on the CURRENT INDEX
   const record = (newValue) => {
-    setRecordArray(prevArray => [...prevArray, newValue]);    
+    setRecordArray(prevArray => [
+      ...prevArray.slice(0, currentIndex + 1),
+      newValue,
+      ...prevArray.slice(currentIndex + 1)
+    ]);
+    
     setCurrent(newValue);
   };
 
@@ -23,7 +28,7 @@ export const useRecord = (init) => {
     setCurrent(recordArray[currentIndex + 1]);
   };
   
-  console.log(recordArray);
+  // console.log(recordArray);
 
   return {
     current,
