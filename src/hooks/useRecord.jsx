@@ -1,9 +1,14 @@
+import { useState } from 'react';
+
 export const useRecord = (init) => {
+  const [current, setCurrent] = useState(init);
+  const record = (newValue) => setCurrent(newValue);
+	
   return {
-    current: init,
+    current,
     undo: () => {},
     redo: () => {},
-    record: () => {}
+    record
   };
 };
 
