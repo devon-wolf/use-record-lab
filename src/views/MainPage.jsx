@@ -1,10 +1,20 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { useRecord } from '../hooks/useRecord';
 import Box from '../components/displays/Box';
 import ControlPanel from '../components/controls/ControlPanel';
 
 const MainPage = () => {
-  const { current, undo, redo, record } = useRecord('#FF0000');
+  const { current, currentIndex, recordArray, undo, redo, record } = useRecord('#FF0000');
+
+  const disableUndo = () => {
+    return currentIndex - 1 < 0;
+  };
+
+  const disableRedo = () => {
+    return currentIndex + 1 === recordArray.length; 
+  };
+
   return (
     <div>
       
@@ -12,6 +22,8 @@ const MainPage = () => {
         handleUndo={undo}
         handleRedo={redo}
         handleColorChange={e => record(e.target.value)}
+        disableUndo={disableUndo()}
+        disableRedo={disableRedo()}
         current={current}
       />
 

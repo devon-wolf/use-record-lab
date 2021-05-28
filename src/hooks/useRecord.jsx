@@ -26,6 +26,8 @@ export const useRecord = (init) => {
 
   return {
     current,
+    currentIndex,
+    recordArray,
     undo,
     redo,
     record
