@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Box = ({ style }) => {
   return (
-    <div style={style}>
+    <div style={style} aria-label="color-display">
 			
     </div>
   );

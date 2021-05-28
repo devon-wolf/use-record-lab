@@ -6,6 +6,7 @@ const ControlPanel = ({ handleUndo, handleRedo, handleColorChange, disableUndo, 
   return (
     <>
       <button
+        aria-label="undo"
         onClick={handleUndo}
         disabled={disableUndo}
       >
@@ -13,6 +14,7 @@ const ControlPanel = ({ handleUndo, handleRedo, handleColorChange, disableUndo, 
       </button>
       	
       <button
+        aria-label="redo"
         onClick={handleRedo}
         disabled={disableRedo}
       >
@@ -20,6 +22,7 @@ const ControlPanel = ({ handleUndo, handleRedo, handleColorChange, disableUndo, 
       </button>
 
       <input
+        aria-label="color-picker"
         type="color"
         value={current}
         onChange={handleColorChange}

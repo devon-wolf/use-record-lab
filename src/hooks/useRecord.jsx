@@ -9,6 +9,7 @@ export const useRecord = (init) => {
     setCurrentIndex(recordArray.indexOf(current));
   }, [current]);
   
+  // actually, need to insert the new value based on the CURRENT INDEX
   const record = (newValue) => {
     setRecordArray(prevArray => [...prevArray, newValue]);    
     setCurrent(newValue);
